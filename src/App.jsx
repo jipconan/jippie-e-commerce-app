@@ -14,6 +14,7 @@ import {
   ContactPage,
   AboutUsPage,
   FaqPage,
+  MerchantPage,
   Keychains,
   Stickers,
   Pins,
@@ -47,6 +48,9 @@ function App() {
               </Route>
               <Route exact path="/faq">
                 <FaqPage />
+              </Route>
+              <Route exact path="/merchant">
+                <MerchantPage />
               </Route>
               <Route exact path="/store/keychains">
                 <Keychains />

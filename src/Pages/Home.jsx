@@ -10,13 +10,15 @@ import {
 } from "@chakra-ui/react";
 
 const Home = () => {
-  const imageButton = {
-    width: "1900px",
-    height: "500px",
+  const imageProp = {
+    width: "1900",
+    height: "600",
     bottomGap: 20,
     buttonColor: "orange",
-    temporaryImage: "https://fakeimg.pl/1900x500",
+    buttonW: "200px",
+    buttonH: "50px",
   };
+  const temporaryImage = `https://fakeimg.pl/${`${imageProp.width}`}x${`${imageProp.height}`}`;
 
   return (
     <Stack>
@@ -30,51 +32,69 @@ const Home = () => {
         <Box
           position="relative"
           display="inline-block"
-          mb={imageButton.bottomGap}
+          mb={imageProp.bottomGap}
         >
           <Image
-            src={imageButton.temporaryImage}
+            src={`${temporaryImage}`}
             alt="Rectangular Image"
-            width={imageButton.width}
-            height={imageButton.height}
+            width={`${imageProp.width}px`}
+            height={`${imageProp.height}px`}
           />
           <Center position="absolute" top="0" left="0" right="0" bottom="0">
             <Link href="/store/keychains">
-              <Button colorScheme={imageButton.buttonColor}>Keychains</Button>
+              <Button
+                colorScheme={imageProp.buttonColor}
+                w={imageProp.buttonW}
+                h={imageProp.buttonH}
+              >
+                Keychains
+              </Button>
             </Link>
           </Center>
         </Box>
         <Box
           position="relative"
           display="inline-block"
-          mb={imageButton.bottomGap}
+          mb={imageProp.bottomGap}
         >
           <Image
-            src={imageButton.temporaryImage}
+            src={temporaryImage}
             alt="Rectangular Image"
-            width={imageButton.width}
-            height={imageButton.height}
+            width={`${imageProp.width}px`}
+            height={`${imageProp.height}px`}
           />
           <Center position="absolute" top="0" left="0" right="0" bottom="0">
             <Link href="/store/stickers">
-              <Button colorScheme={imageButton.buttonColor}>Stickers</Button>
+              <Button
+                colorScheme={imageProp.buttonColor}
+                w={imageProp.buttonW}
+                h={imageProp.buttonH}
+              >
+                Stickers
+              </Button>
             </Link>
           </Center>
         </Box>
         <Box
           position="relative"
           display="inline-block"
-          mb={imageButton.bottomGap}
+          mb={imageProp.bottomGap}
         >
           <Image
-            src={imageButton.temporaryImage}
+            src={temporaryImage}
             alt="Rectangular Image"
-            width={imageButton.width}
-            height={imageButton.height}
+            width={`${imageProp.width}px`}
+            height={`${imageProp.height}px`}
           />
           <Center position="absolute" top="0" left="0" right="0" bottom="0">
             <Link href="/store/pins">
-              <Button colorScheme={imageButton.buttonColor}>Pins</Button>
+              <Button
+                colorScheme={imageProp.buttonColor}
+                w={imageProp.buttonW}
+                h={imageProp.buttonH}
+              >
+                Pins
+              </Button>
             </Link>
           </Center>
         </Box>
