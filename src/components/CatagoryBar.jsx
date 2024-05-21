@@ -10,7 +10,7 @@ const CatagoryBar = () => {
       <Flex
         as="nav"
         color="black"
-        // padding="1.5rem"
+        padding="1.5rem"
         justifyContent="center"
         alignItems="center"
       >
