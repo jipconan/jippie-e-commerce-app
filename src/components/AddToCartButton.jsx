@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Stack } from "@chakra-ui/react";
 
-function AddToCartButton({ id, price, description, image, name }) {
+function AddToCartButton({ id, price, description, imageUrl, name }) {
   return (
     <>
       <Stack>
@@ -12,7 +12,7 @@ function AddToCartButton({ id, price, description, image, name }) {
             data-item-id={id}
             data-item-price={price}
             data-item-description={description}
-            data-item-image={image}
+            data-item-image={imageUrl}
             data-item-name={name}
             colorScheme="orange"
           >
