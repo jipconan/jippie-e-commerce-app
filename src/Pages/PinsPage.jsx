@@ -3,8 +3,9 @@ import { Stack } from "@chakra-ui/react";
 import { CatagoryBar, ProductGrid } from "../components";
 import useApi from "../utilities/useApi";
 
-const Pins = () => {
-  const { datas, fetchDatas } = useApi("Pins");
+const PinsPage = () => {
+  const { datas, fetchDatas } = useApi("Pins", true);
+  // console.log(datas);
 
   const refetchProducts = () => {
     fetchDatas();
@@ -19,4 +20,4 @@ const Pins = () => {
   );
 };
 
-export default Pins;
+export default PinsPage;

@@ -3,21 +3,20 @@ import { ChakraProvider, Stack } from "@chakra-ui/react";
 import {
   BrowserRouter as Router,
   Route,
-  Link,
   Switch,
   Redirect,
 } from "react-router-dom";
 import "./App.css";
 import {
   Home,
-  Store,
+  StorePage,
   ContactPage,
   AboutUsPage,
   FaqPage,
   MerchantPage,
-  Keychains,
-  Stickers,
-  Pins,
+  KeychainsPage,
+  StickersPage,
+  PinsPage,
 } from "./Pages";
 import { Header, Footer } from "./components";
 import theme from "./utilities/theme";
@@ -38,7 +37,7 @@ function App() {
                 <Home />
               </Route>
               <Route exact path="/store">
-                <Store />
+                <StorePage />
               </Route>
               <Route exact path="/contact">
                 <ContactPage />
@@ -53,13 +52,13 @@ function App() {
                 <MerchantPage />
               </Route>
               <Route exact path="/store/keychains">
-                <Keychains />
+                <KeychainsPage />
               </Route>
               <Route exact path="/store/stickers">
-                <Stickers />
+                <StickersPage />
               </Route>
               <Route exact path="/store/pins">
-                <Pins />
+                <PinsPage />
               </Route>
               <Route>
                 <Redirect to="/" />

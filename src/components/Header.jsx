@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Flex, Box, Image, Center, Button } from "@chakra-ui/react";
+import { Stack, Flex, Box, Image, Center, Link } from "@chakra-ui/react";
 import { NavBar, HeaderLogo } from "../components";
 
 const Header = () => {
@@ -26,7 +26,9 @@ const Header = () => {
       >
         <Flex direction="column" align="center" width="100%">
           <Stack>
-            <HeaderLogo />
+            <Link href="/">
+              <HeaderLogo />
+            </Link>
           </Stack>
           <NavBar />
         </Flex>

@@ -1,9 +1,9 @@
 export { default as Home } from "./Home";
-export { default as Store } from "./Store";
+export { default as StorePage } from "./StorePage";
 export { default as ContactPage } from "./ContactPage";
 export { default as AboutUsPage } from "./AboutUsPage";
 export { default as FaqPage } from "./FaqPage";
 export { default as MerchantPage } from "./MerchantPage";
-export { default as Keychains } from "./Keychains";
-export { default as Stickers } from "./Stickers";
-export { default as Pins } from "./Pins";
+export { default as KeychainsPage } from "./KeychainsPage";
+export { default as StickersPage } from "./StickersPage";
+export { default as PinsPage } from "./PinsPage";

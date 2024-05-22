@@ -4,13 +4,13 @@ import { Flex, Box, Link, Text, Stack } from "@chakra-ui/react";
 const CatagoryBar = () => {
   return (
     <Stack>
-      <Text p="2em">
+      <Text p="1.5em">
         Please feel free to browse! They are all made by Jippie Artists!
       </Text>
       <Flex
         as="nav"
         color="black"
-        padding="1.5rem"
+        padding="0.5rem"
         justifyContent="center"
         alignItems="center"
       >

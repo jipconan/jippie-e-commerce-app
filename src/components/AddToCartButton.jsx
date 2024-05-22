@@ -14,7 +14,7 @@ function AddToCartButton({ id, price, description, image, name }) {
             data-item-description={description}
             data-item-image={image}
             data-item-name={name}
-            colorScheme="blue"
+            colorScheme="orange"
           >
             Add to Cart
           </Button>

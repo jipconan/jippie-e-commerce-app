@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useApi = (tableName) => {
+const useApi = (tableName, shouldFetchData = true) => {
   const AIRTABLE_API_KEY = import.meta.env.VITE_AIRTABLE_API_KEY;
   const BASE_ID = import.meta.env.VITE_AIRTABLE_BASE_ID;
   const TABLE_NAME = tableName;
@@ -13,15 +13,14 @@ const useApi = (tableName) => {
   };
 
   const [datas, setDatas] = useState([]);
-  const [filter, setFilter] = useState("");
-  const [filterField, setFilterField] = useState(null);
 
-  const fetchDatas = async (filterValue = "", field = null) => {
+  // const fetchDatas = async (filterValue = "", field = null) => {
+  const fetchDatas = async () => {
     let url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
-    if (filterValue && field) {
-      const filterFormula = encodeURIComponent(`{${field}}="${filterValue}"`);
-      url = `${baseUrl}?filterByFormula=${filterFormula}`;
-    }
+    // if (filterValue && field) {
+    //   const filterFormula = encodeURIComponent(`{${field}}="${filterValue}"`);
+    //   url = `${baseUrl}?filterByFormula=${filterFormula}`;
+    // }
 
     try {
       const response = await fetch(url, options);
@@ -36,12 +35,15 @@ const useApi = (tableName) => {
   };
 
   const createDatas = async (fields) => {
+    let url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
     try {
       const payload = {
         fields: fields,
       };
 
-      const response = await fetch(baseUrl, {
+      console.log(payload);
+
+      const response = await fetch(url, {
         ...options,
         method: "POST",
         body: JSON.stringify(payload),
@@ -51,16 +53,18 @@ const useApi = (tableName) => {
         throw new Error(`Error creating data: ${response.statusText}`);
       }
 
-      const newData = await response.json();
-      setDatas([...datas, newData]);
+      // const newData = await response.json();
+      // setDatas([...datas, newData]);
     } catch (error) {
       console.error("Error creating data:", error);
     }
   };
 
   useEffect(() => {
-    fetchDatas(filter, filterField);
-  }, [filter, filterField]);
+    if (shouldFetchData) {
+      fetchDatas();
+    }
+  }, [shouldFetchData]);
 
   const datasData = () => {
     if (!datas) return [];
@@ -74,8 +78,6 @@ const useApi = (tableName) => {
     datas: datasData(),
     createDatas,
     fetchDatas,
-    setFilter,
-    setFilterField,
   };
 };
 

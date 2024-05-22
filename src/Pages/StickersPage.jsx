@@ -3,8 +3,9 @@ import { Stack } from "@chakra-ui/react";
 import { CatagoryBar, ProductGrid } from "../components";
 import useApi from "../utilities/useApi";
 
-const Keychains = () => {
-  const { datas, fetchDatas } = useApi("Keychains");
+const StickersPage = () => {
+  const { datas, fetchDatas } = useApi("Stickers", true);
+  // console.log(datas);
 
   const refetchProducts = () => {
     fetchDatas();
@@ -19,4 +20,4 @@ const Keychains = () => {
   );
 };
 
-export default Keychains;
+export default StickersPage;

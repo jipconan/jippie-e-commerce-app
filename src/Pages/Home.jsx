@@ -12,7 +12,7 @@ import {
 const Home = () => {
   const imageProp = {
     width: "1900",
-    height: "600",
+    height: "800",
     bottomGap: 20,
     buttonColor: "orange",
     buttonW: "200px",
