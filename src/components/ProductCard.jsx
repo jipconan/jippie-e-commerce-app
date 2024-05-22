@@ -3,7 +3,7 @@ import { Box, Image, Text } from "@chakra-ui/react";
 import AddToCartButton from "./AddToCartButton";
 import googleImageConverter from "../utilities/googleImageConverter";
 
-const ProductCard = ({ id, imageUrl, name, description, price }) => {
+const ProductCard = ({ id, imageUrl, name, description, price, publicId }) => {
   const convertedImageLink = googleImageConverter(imageUrl);
 
   return (
@@ -35,6 +35,7 @@ const ProductCard = ({ id, imageUrl, name, description, price }) => {
         </Text>
         <AddToCartButton
           id={id}
+          public_id={publicId}
           image={convertedImageLink}
           name={name}
           description={description}

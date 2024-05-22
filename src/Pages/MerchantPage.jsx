@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   FormControl,
@@ -9,7 +9,7 @@ import {
   Stack,
   Button,
 } from "@chakra-ui/react";
-import useApi from "../utilities/useApi";
+import { useApi, uploadToCloudinary } from "../utilities";
 
 const MerchantPage = () => {
   const [name, setName] = useState("");
@@ -24,19 +24,29 @@ const MerchantPage = () => {
   const handleCategoryChange = (event) => setCategory(event.target.value);
   const handleFileChange = (event) => setFile(event.target.files[0]);
 
-  console.log(name, price, description, category, file);
-
   const { createDatas } = useApi(category, false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    console
+      .log
+      // `Step1: ${name}, ${price}, ${description}, ${category}, ${file.name}, ${file.type}, ${file.size}`
+      ();
     if (name && price && description && category && file) {
       try {
+        const { secureUrl, publicId } = await uploadToCloudinary(
+          file,
+          category
+        );
+
+        // console.log(`Step2: ${secureUrl}, ${publicId}`);
+
         await createDatas({
-          name: name,
+          name,
           price: parseFloat(price),
-          description: description,
-          // imageUrl: ,
+          description,
+          imageUrl: secureUrl,
+          public_id: publicId,
         });
       } catch (error) {
         console.error("Error submitting product:", error);
@@ -81,9 +91,13 @@ const MerchantPage = () => {
           </Select>
         </FormControl>
 
-        <FormControl id="file" isRequired mb={4}>
-          <FormLabel color="orange.600">Upload Image</FormLabel>
-          <Input type="file" onChange={handleFileChange} />
+        <FormControl id="file" isRequired mb={4} textAlign="center">
+          <FormLabel color="orange.600">Upload Image (PNG or JPEG)</FormLabel>
+          <Input
+            type="file"
+            accept=".png, .jpg, .jpeg"
+            onChange={handleFileChange}
+          />
         </FormControl>
 
         <Stack mt={4}>
