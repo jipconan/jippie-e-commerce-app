@@ -41,7 +41,7 @@ const useApi = (tableName, shouldFetchData = true) => {
         fields: fields,
       };
 
-      console.log(payload);
+      // console.log(payload);
 
       const response = await fetch(url, {
         ...options,

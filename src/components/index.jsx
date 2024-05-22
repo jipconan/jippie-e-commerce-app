@@ -6,3 +6,4 @@ export { default as ProductCard } from "./ProductCard";
 export { default as NavBar } from "./NavBar";
 export { default as CatagoryBar } from "./CatagoryBar";
 export { default as HeaderLogo } from "./HeaderLogo";
+export { default as MerchantUploadModal } from "./MerchantUploadModal";

@@ -2,7 +2,9 @@ import React from "react";
 import { Box, Image, Text, Stack } from "@chakra-ui/react";
 import AddToCartButton from "./AddToCartButton";
 
-const ProductCard = ({ id, name, description, price, publicId, imageUrl }) => {
+const ProductCard = ({ id, imageUrl, name, description, price, publicId }) => {
+  const convertedImageLink = googleImageConverter(imageUrl);
+
   return (
     <Box
       borderWidth="1px"
@@ -12,8 +14,15 @@ const ProductCard = ({ id, name, description, price, publicId, imageUrl }) => {
       p="4"
       bg="white"
     >
-      <Image src={imageUrl} alt={name} boxSize="400px" objectFit="cover" />
+      <Image
+        src={convertedImageLink}
+        alt={name}
+        boxSize="400px"
+        objectFit="cover"
+      />
       <Box mt="4" p="2">
+        {" "}
+        {/* Adjust padding here */}
         <Text fontWeight="bold" fontSize="lg" mb="2">
           {name}
         </Text>
@@ -27,7 +36,7 @@ const ProductCard = ({ id, name, description, price, publicId, imageUrl }) => {
           <AddToCartButton
             id={id}
             public_id={publicId}
-            image={imageUrl}
+            image={convertedImageLink}
             name={name}
             description={description}
             price={price}

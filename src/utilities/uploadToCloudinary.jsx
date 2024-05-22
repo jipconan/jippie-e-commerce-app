@@ -11,7 +11,7 @@ const uploadToCloudinary = async (file, category) => {
   formData.append("upload_preset", CLOUDINARY_PRESET_KEY);
   formData.append("folder", category);
 
-  console.log(formData);
+  // console.log(formData);
 
   const response = await fetch(
     `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/upload`,
