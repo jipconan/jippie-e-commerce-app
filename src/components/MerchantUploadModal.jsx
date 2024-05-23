@@ -17,11 +17,11 @@ import {
 } from "@chakra-ui/react";
 import { useApi, uploadToCloudinary } from "../utilities";
 
-const MerchantUploadModal = ({ isOpen, onClose }) => {
+const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState("");
+  const [categories, setCategories] = useState("");
   const [file, setFile] = useState(null);
   const [load, setLoad] = useState(false);
 
@@ -30,16 +30,16 @@ const MerchantUploadModal = ({ isOpen, onClose }) => {
   const handleNameChange = (event) => setName(event.target.value);
   const handlePriceChange = (event) => setPrice(event.target.value);
   const handleDescriptionChange = (event) => setDescription(event.target.value);
-  const handleCategoryChange = (event) => setCategory(event.target.value);
+  const handleCategoriesChange = (event) => setCategories(event.target.value);
   const handleFileChange = (event) => setFile(event.target.files[0]);
 
-  const { createDatas } = useApi(category, false);
+  const { createDatas } = useApi(categories, false);
 
   const clearForm = () => {
     setName("");
     setPrice("");
     setDescription("");
-    setCategory("");
+    setCategories("");
     setFile(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = ""; // Reset the file input
@@ -56,12 +56,12 @@ const MerchantUploadModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (name && price && description && category && file) {
+    if (name && price && description && categories && file) {
       try {
         handleLoad();
         const { secureUrl, publicId } = await uploadToCloudinary(
           file,
-          category
+          categories
         );
 
         await createDatas({
@@ -70,10 +70,12 @@ const MerchantUploadModal = ({ isOpen, onClose }) => {
           description,
           imageUrl: secureUrl,
           public_id: publicId,
+          category: categories,
         });
 
         clearForm();
         handleStopLoad();
+        refetchAllCategories();
         onClose();
       } catch (error) {
         console.error("Error submitting product:", error);
@@ -110,7 +112,7 @@ const MerchantUploadModal = ({ isOpen, onClose }) => {
 
             <FormControl id="category" isRequired mb={4}>
               <FormLabel color="green.600">Category</FormLabel>
-              <Select value={category} onChange={handleCategoryChange}>
+              <Select value={categories} onChange={handleCategoriesChange}>
                 <option value="">Please choose an option</option>
                 <option value="Keychains">Keychains</option>
                 <option value="Stickers">Stickers</option>

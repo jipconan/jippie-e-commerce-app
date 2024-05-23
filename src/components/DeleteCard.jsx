@@ -1,8 +1,15 @@
 import React from "react";
-import { Box, Image, Text, Flex, Button } from "@chakra-ui/react";
-import AddToCartButton from "./AddToCartButton";
+import {
+  Box,
+  Image,
+  Text,
+  Flex,
+  Button,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { MerchantDeleteModal } from "../components";
 
-const ProductCard = ({
+const DeleteCard = ({
   id,
   name,
   description,
@@ -10,7 +17,11 @@ const ProductCard = ({
   publicId,
   imageUrl,
   category,
+  refetchAllCategories,
 }) => {
+  // Open Modal for Delete Product
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box
       borderWidth="1px"
@@ -31,15 +42,16 @@ const ProductCard = ({
         <Text mt="2" fontSize="lg" fontWeight="semibold" p="5">
           ${price}
         </Text>
-        <Flex justifyContent="flex-end" mt="4">
-          <AddToCartButton
-            id={id}
-            public_id={publicId}
-            imageUrl={imageUrl}
-            name={name}
-            description={description}
-            price={price}
+        <Flex justifyContent="flex-start" mt="4">
+          <Button colorScheme="red" size="md" onClick={onOpen}>
+            Delete
+          </Button>
+          <MerchantDeleteModal
+            isOpen={isOpen}
+            onClose={onClose}
             category={category}
+            id={id}
+            refetchAllCategories={refetchAllCategories}
           />
         </Flex>
       </Box>
@@ -47,4 +59,4 @@ const ProductCard = ({
   );
 };
 
-export default ProductCard;
+export default DeleteCard;

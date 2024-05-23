@@ -60,9 +60,12 @@ function App() {
               <Route exact path="/store/pins">
                 <PinsPage />
               </Route>
-              <Route>
+              {/* <Route exact path="/store/:category/:id">
+                <ProductPage />
+              </Route> */}
+              {/* <Route>
                 <Redirect to="/" />
-              </Route>
+              </Route> */}
             </Switch>
           </main>
           <footer className="footer">

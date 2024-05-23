@@ -7,14 +7,14 @@ const StickersPage = () => {
   const { datas, fetchDatas } = useApi("Stickers", true);
   // console.log(datas);
 
-  const refetchProducts = () => {
+  const fetchProducts = () => {
     fetchDatas();
   };
   return (
     <Stack>
       <CatagoryBar />
       <Stack d="flex" spacing={4} align="center" p={8}>
-        <ProductGrid datas={datas} refetchProducts={refetchProducts} />
+        <ProductGrid datas={datas} fetchProducts={fetchProducts} />
       </Stack>
     </Stack>
   );

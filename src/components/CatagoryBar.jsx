@@ -10,12 +10,12 @@ const CatagoryBar = () => {
       <Flex
         as="nav"
         color="black"
-        padding="0.5rem"
+        padding="1rem"
         justifyContent="center"
         alignItems="center"
       >
         <Box fontWeight="bold" fontSize="xl"></Box>
-        <Flex gap="2rem">
+        <Flex gap="1rem">
           <Link
             href="/store/keychains"
             _hover={{ textDecoration: "underline" }}

@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 const useApi = (tableName, shouldFetchData = true) => {
   const AIRTABLE_API_KEY = import.meta.env.VITE_AIRTABLE_API_KEY;
   const BASE_ID = import.meta.env.VITE_AIRTABLE_BASE_ID;
-  const TABLE_NAME = tableName;
 
   const options = {
     headers: {
@@ -14,13 +13,9 @@ const useApi = (tableName, shouldFetchData = true) => {
 
   const [datas, setDatas] = useState([]);
 
-  // const fetchDatas = async (filterValue = "", field = null) => {
-  const fetchDatas = async () => {
-    let url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
-    // if (filterValue && field) {
-    //   const filterFormula = encodeURIComponent(`{${field}}="${filterValue}"`);
-    //   url = `${baseUrl}?filterByFormula=${filterFormula}`;
-    // }
+  // Fetch data function
+  const fetchDatas = useCallback(async () => {
+    let url = `https://api.airtable.com/v0/${BASE_ID}/${tableName}`;
 
     try {
       const response = await fetch(url, options);
@@ -32,16 +27,15 @@ const useApi = (tableName, shouldFetchData = true) => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-  };
+  }, [BASE_ID, tableName, options]);
 
+  // Create data function
   const createDatas = async (fields) => {
-    let url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+    let url = `https://api.airtable.com/v0/${BASE_ID}/${tableName}`;
     try {
       const payload = {
         fields: fields,
       };
-
-      // console.log(payload);
 
       const response = await fetch(url, {
         ...options,
@@ -52,11 +46,29 @@ const useApi = (tableName, shouldFetchData = true) => {
       if (!response.ok) {
         throw new Error(`Error creating data: ${response.statusText}`);
       }
-
-      // const newData = await response.json();
-      // setDatas([...datas, newData]);
+      // Refetch data after successful creation
+      await fetchDatas();
     } catch (error) {
       console.error("Error creating data:", error);
+    }
+  };
+
+  // Delete data function
+  const deleteData = async (id) => {
+    let url = `https://api.airtable.com/v0/${BASE_ID}/${tableName}/${id}`;
+    try {
+      const response = await fetch(url, {
+        ...options,
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error deleting data: ${response.statusText}`);
+      }
+      // Refetch data after successful deletion
+      await fetchDatas();
+    } catch (error) {
+      console.error("Error deleting data:", error);
     }
   };
 
@@ -77,7 +89,8 @@ const useApi = (tableName, shouldFetchData = true) => {
   return {
     datas: datasData(),
     createDatas,
-    fetchDatas,
+    deleteData,
+    refetch: fetchDatas, // Expose refetch function
   };
 };
 
