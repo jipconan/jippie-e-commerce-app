@@ -15,9 +15,10 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import { useApi, uploadToCloudinary } from "../utilities";
+import { useApi, useCloudinary } from "../utilities";
 
 const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
+  const { uploadImage } = useCloudinary();
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
@@ -59,10 +60,7 @@ const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
     if (name && price && description && categories && file) {
       try {
         handleLoad();
-        const { secureUrl, publicId } = await uploadToCloudinary(
-          file,
-          categories
-        );
+        const { secureUrl, publicId } = await uploadImage(file, categories);
 
         await createDatas({
           name,

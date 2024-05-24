@@ -52,6 +52,7 @@ const DeleteCard = ({
             category={category}
             id={id}
             refetchAllCategories={refetchAllCategories}
+            publicId={publicId}
           />
         </Flex>
       </Box>

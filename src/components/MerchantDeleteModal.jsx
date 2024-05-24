@@ -9,7 +9,7 @@ import {
   Button,
   Text,
 } from "@chakra-ui/react";
-import useApi from "../utilities/useApi";
+import { useApi, useCloudinary } from "../utilities";
 
 function MerchantDeleteModal({
   isOpen,
@@ -17,13 +17,25 @@ function MerchantDeleteModal({
   id,
   category,
   refetchAllCategories,
+  publicId,
 }) {
+  const { deleteImage } = useCloudinary();
   const { deleteData } = useApi(category, false);
 
   const onDelete = async () => {
-    await deleteData(id);
-    refetchAllCategories();
-    onClose();
+    try {
+      // Delete the data from your API
+      await deleteData(id);
+      // Delete the image from Cloudinary
+      await deleteImage(publicId);
+      // Refetch all categories to refresh the UI
+      refetchAllCategories();
+      // Close the modal
+      onClose();
+    } catch (error) {
+      console.error("Error deleting product or image:", error);
+      // Handle error appropriately, e.g., show an error message to the user
+    }
   };
 
   return (
