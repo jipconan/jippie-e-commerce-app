@@ -4,7 +4,7 @@ export { default as AddToCartButton } from "./AddToCartButton";
 export { default as ProductGrid } from "./ProductGrid";
 export { default as ProductCard } from "./ProductCard";
 export { default as NavBar } from "./NavBar";
-export { default as CatagoryBar } from "./CatagoryBar";
+export { default as CategoryBar } from "./CategoryBar";
 export { default as HeaderLogo } from "./HeaderLogo";
 export { default as MerchantUploadModal } from "./MerchantUploadModal";
 export { default as MerchantDeleteModal } from "./MerchantDeleteModal";

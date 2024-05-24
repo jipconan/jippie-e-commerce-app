@@ -1,11 +1,10 @@
 import React from "react";
 import { Stack, Flex, Text } from "@chakra-ui/react";
-import { CatagoryBar, ProductGrid } from "../components";
+import { CategoryBar, ProductGrid } from "../components";
 import useApi from "../utilities/useApi";
 
-const categoryPage = ["Keychains", "Stickers", "Pins"];
-
 const StorePage = () => {
+  const categoryPage = ["Keychains", "Stickers", "Pins"];
   const { datas: keychainData } = useApi("Keychains", true);
   const { datas: stickerData } = useApi("Stickers", true);
   const { datas: pinData } = useApi("Pins", true);
@@ -19,7 +18,7 @@ const StorePage = () => {
 
   return (
     <Stack>
-      <CatagoryBar />
+      <CategoryBar />
       <Stack d="flex" spacing={4} align="center" mb={0} p={10}>
         {categoryPage.map((category) => (
           <Flex key={category} direction="column" w="100%">

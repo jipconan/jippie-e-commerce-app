@@ -1,6 +1,6 @@
 import React from "react";
 import { Stack } from "@chakra-ui/react";
-import { CatagoryBar, ProductGrid } from "../components";
+import { CategoryBar, ProductGrid } from "../components";
 import useApi from "../utilities/useApi";
 
 const KeychainsPage = () => {
@@ -12,7 +12,7 @@ const KeychainsPage = () => {
   };
   return (
     <Stack>
-      <CatagoryBar />
+      <CategoryBar />
       <Stack d="flex" spacing={4} align="center" p={8}>
         <ProductGrid datas={datas} fetchProducts={fetchProducts} />
       </Stack>

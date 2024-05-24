@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, Box, Link, Text, Stack } from "@chakra-ui/react";
 
-const CatagoryBar = () => {
+const CategoryBar = () => {
   return (
     <Stack>
       <Text p="1.5em">
@@ -34,4 +34,4 @@ const CatagoryBar = () => {
   );
 };
 
-export default CatagoryBar;
+export default CategoryBar;

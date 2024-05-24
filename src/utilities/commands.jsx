@@ -1,2 +1,2 @@
 // npm run dev
-// ngrok http http://localhost:8080
+// ngrok http --domain=kid-casual-thankfully.ngrok-free.app 5173

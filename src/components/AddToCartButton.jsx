@@ -10,8 +10,8 @@ const AddToCartButton = ({
   price,
   category,
 }) => {
-  const ngrokUrl = "https://f966-218-212-35-177.ngrok-free.app"; // Replace with your Ngrok URL
-  const productUrl = `${ngrokUrl}/store/${imageUrl}`;
+  const ngrokUrl = "https://kid-casual-thankfully.ngrok-free.app"; // Replace with your Ngrok URL
+  const productUrl = `${ngrokUrl}/store`;
 
   return (
     <Button
