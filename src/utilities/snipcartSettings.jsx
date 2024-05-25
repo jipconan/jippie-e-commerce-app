@@ -1,6 +1,7 @@
 window.SnipcartSettings = {
   publicApiKey: import.meta.env.VITE_SNIPCART_API_KEY,
   loadStrategy: "on-user-interaction",
+  modalStyle: "side",
 };
 
 (function () {

@@ -17,9 +17,11 @@ import {
   KeychainsPage,
   StickersPage,
   PinsPage,
+  GetProductPage,
+  ProductDataPage,
 } from "./Pages";
 import { Header, Footer } from "./components";
-import theme from "./utilities/theme";
+import { theme } from "./utilities";
 
 function App() {
   return (
@@ -59,6 +61,9 @@ function App() {
               </Route>
               <Route exact path="/store/pins">
                 <PinsPage />
+              </Route>
+              <Route exact path="/productdatapage">
+                <ProductDataPage />
               </Route>
               <Route>
                 <Redirect to="/" />

@@ -30,32 +30,37 @@ const DeleteCard = ({
       boxShadow="md"
       p="4"
       bg="white"
+      display="flex"
+      flexDirection="column"
+      h="100%"
     >
-      <Image src={imageUrl} alt={name} boxSize="400px" objectFit="cover" />
-      <Box mt="4" p="2">
-        <Text fontWeight="bold" fontSize="lg" mb="2">
-          {name}
-        </Text>
-        <Text color="gray.500" fontSize="sm">
-          {description}
-        </Text>
-        <Text mt="2" fontSize="lg" fontWeight="semibold" p="5">
-          ${price}
-        </Text>
-        <Flex justifyContent="flex-start" mt="4">
-          <Button colorScheme="red" size="md" onClick={onOpen}>
-            Delete
-          </Button>
-          <MerchantDeleteModal
-            isOpen={isOpen}
-            onClose={onClose}
-            category={category}
-            id={id}
-            refetchAllCategories={refetchAllCategories}
-            publicId={publicId}
-          />
-        </Flex>
+      <Box flex="1">
+        <Image src={imageUrl} alt={name} boxSize="400px" objectFit="cover" />
+        <Box mt="4" p="2">
+          <Text fontWeight="bold" fontSize="lg" mb="2">
+            {name}
+          </Text>
+          <Text color="gray.500" fontSize="sm">
+            {description}
+          </Text>
+          <Text mt="2" fontSize="lg" fontWeight="semibold" p="5">
+            ${price}
+          </Text>
+        </Box>
       </Box>
+      <Flex justifyContent="flex-start" mt="4">
+        <Button colorScheme="red" size="md" onClick={onOpen}>
+          Delete
+        </Button>
+        <MerchantDeleteModal
+          isOpen={isOpen}
+          onClose={onClose}
+          category={category}
+          id={id}
+          refetchAllCategories={refetchAllCategories}
+          publicId={publicId}
+        />
+      </Flex>
     </Box>
   );
 };

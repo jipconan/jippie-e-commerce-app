@@ -8,7 +8,14 @@ import {
   ModalCloseButton,
   Button,
   Text,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Select,
+  Stack,
 } from "@chakra-ui/react";
+import { useState } from "react";
 import { useApi, useCloudinary } from "../utilities";
 
 function MerchantDeleteModal({
@@ -21,15 +28,26 @@ function MerchantDeleteModal({
 }) {
   const { deleteImage } = useCloudinary();
   const { deleteData } = useApi(category, false);
+  const [load, setLoad] = useState(false);
+
+  const handleLoad = () => {
+    setLoad(true);
+  };
+
+  const handleStopLoad = () => {
+    setLoad(false);
+  };
 
   const onDelete = async () => {
     try {
+      handleLoad();
       // Delete the data from your API
       await deleteData(id);
       // Delete the image from Cloudinary
       await deleteImage(publicId);
       // Refetch all categories to refresh the UI
       refetchAllCategories();
+      handleStopLoad();
       // Close the modal
       onClose();
     } catch (error) {
@@ -57,7 +75,13 @@ function MerchantDeleteModal({
           >
             Close
           </Button>
-          <Button variant="solid" colorScheme="red" onClick={onDelete} w={20}>
+          <Button
+            variant="solid"
+            colorScheme="red"
+            onClick={onDelete}
+            w={20}
+            isLoading={load}
+          >
             Yes
           </Button>
         </ModalFooter>

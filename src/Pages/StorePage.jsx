@@ -1,13 +1,26 @@
-import React from "react";
+import { React, useEffect } from "react";
 import { Stack, Flex, Text } from "@chakra-ui/react";
 import { CategoryBar, ProductGrid } from "../components";
 import useApi from "../utilities/useApi";
 
 const StorePage = () => {
   const categoryPage = ["Keychains", "Stickers", "Pins"];
-  const { datas: keychainData } = useApi("Keychains", true);
-  const { datas: stickerData } = useApi("Stickers", true);
-  const { datas: pinData } = useApi("Pins", true);
+  const { datas: keychainData, refetch: refetchKeychains } = useApi(
+    "Keychains",
+    false
+  );
+  const { datas: stickerData, refetch: refetchStickers } = useApi(
+    "Stickers",
+    false
+  );
+  const { datas: pinData, refetch: refetchPins } = useApi("Pins", false);
+
+  useEffect(() => {
+    // Fetch data for each category when component mounts
+    refetchKeychains();
+    refetchStickers();
+    refetchPins();
+  }, []);
 
   // Combine data from all categories
   const categoryData = {

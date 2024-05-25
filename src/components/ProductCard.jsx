@@ -19,30 +19,35 @@ const ProductCard = ({
       boxShadow="md"
       p="4"
       bg="white"
+      display="flex"
+      flexDirection="column"
+      h="100%"
     >
-      <Image src={imageUrl} alt={name} boxSize="400px" objectFit="cover" />
-      <Box mt="4" p="2">
-        <Text fontWeight="bold" fontSize="lg" mb="2">
-          {name}
-        </Text>
-        <Text color="gray.500" fontSize="sm">
-          {description}
-        </Text>
-        <Text mt="2" fontSize="lg" fontWeight="semibold" p="5">
-          ${price}
-        </Text>
-        <Flex justifyContent="flex-end" mt="4">
-          <AddToCartButton
-            id={id}
-            public_id={publicId}
-            imageUrl={imageUrl}
-            name={name}
-            description={description}
-            price={price}
-            category={category}
-          />
-        </Flex>
+      <Box flex="1">
+        <Image src={imageUrl} alt={name} boxSize="400px" objectFit="cover" />
+        <Box mt="4" p="2">
+          <Text fontWeight="bold" fontSize="lg" mb="2">
+            {name}
+          </Text>
+          <Text color="gray.500" fontSize="sm">
+            {description}
+          </Text>
+          <Text mt="2" fontSize="lg" fontWeight="semibold" p="5">
+            ${price}
+          </Text>
+        </Box>
       </Box>
+      <Flex justifyContent="flex-end" mt="4">
+        <AddToCartButton
+          id={id}
+          public_id={publicId}
+          imageUrl={imageUrl}
+          name={name}
+          description={description}
+          price={price}
+          category={category}
+        />
+      </Flex>
     </Box>
   );
 };

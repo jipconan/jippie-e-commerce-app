@@ -1,6 +1,6 @@
 import React from "react";
 import { Flex, Box, Link, Button } from "@chakra-ui/react";
-import { RiLoginBoxLine } from "react-icons/ri";
+import { RiLoginBoxLine, RiShoppingCart2Line } from "react-icons/ri";
 
 const NavBar = () => {
   return (
@@ -31,19 +31,22 @@ const NavBar = () => {
           </Link>
         </Flex>
       </Flex>
-      <Link href="/merchant" _hover={{ textDecoration: "" }}>
-        <Button
-          leftIcon={<RiLoginBoxLine />}
-          colorScheme="orange"
-          variant="solid"
-          position="absolute"
-          right="1rem"
-          bottom="10px"
-          size="sm"
-        >
-          Merchant
+      <Flex gap="1rem" position="absolute" right="1rem" bottom="10px">
+        <Link href="/merchant" _hover={{ textDecoration: "" }}>
+          <Button
+            leftIcon={<RiLoginBoxLine />}
+            colorScheme="orange"
+            variant="outline"
+            size="md"
+            w={120}
+          >
+            Merchant
+          </Button>
+        </Link>
+        <Button class="snipcart-checkout" leftIcon={<RiShoppingCart2Line />}>
+          Cart
         </Button>
-      </Link>
+      </Flex>
     </Flex>
   );
 };
