@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Stack, Flex, Heading } from "@chakra-ui/react";
 import { CategoryBar, ProductGrid, FadingBox } from "../components";
-import useApi from "../utilities/useApi";
+import useAirtable from "../utilities/useAirtable";
 
 const StorePage = () => {
   const categoryPage = ["Keychains", "Stickers", "Pins"];
-  const { datas: keychainData, refetch: refetchKeychains } = useApi(
+  const { datas: keychainData, refetch: refetchKeychains } = useAirtable(
     "Keychains",
     false
   );
-  const { datas: stickerData, refetch: refetchStickers } = useApi(
+  const { datas: stickerData, refetch: refetchStickers } = useAirtable(
     "Stickers",
     false
   );
-  const { datas: pinData, refetch: refetchPins } = useApi("Pins", false);
+  const { datas: pinData, refetch: refetchPins } = useAirtable("Pins", false);
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

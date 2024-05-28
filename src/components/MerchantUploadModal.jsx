@@ -15,7 +15,7 @@ import {
   ModalBody,
   ModalCloseButton,
 } from "@chakra-ui/react";
-import { useApi, useCloudinary } from "../utilities";
+import { useAirtable, useCloudinary } from "../utilities";
 
 const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
   const { uploadImage } = useCloudinary(); // Use Cloudinary API
@@ -34,7 +34,7 @@ const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
   const handleCategoriesChange = (event) => setCategories(event.target.value);
   const handleFileChange = (event) => setFile(event.target.files[0]);
 
-  const { createDatas } = useApi(categories, false); // Use Airtable API
+  const { createDatas } = useAirtable(categories, false); // Use Airtable
 
   const clearForm = () => {
     setName("");

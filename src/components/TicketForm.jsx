@@ -9,10 +9,10 @@ import {
   Box,
   HStack,
 } from "@chakra-ui/react";
-import { useApi } from "../utilities";
+import { useAirtable } from "../utilities";
 
 const TicketForm = () => {
-  const { createDatas } = useApi("Forms", false); // Use Airtable API
+  const { createDatas } = useAirtable("Forms", false); // Use Airtable API
 
   const [form, setForm] = useState({
     firstName: "",

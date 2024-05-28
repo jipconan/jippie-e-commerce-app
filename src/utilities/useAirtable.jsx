@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-const useApi = (tableName, shouldFetchData = true) => {
+const useAirtable = (tableName, shouldFetchData = true) => {
   const AIRTABLE_API_KEY = import.meta.env.VITE_AIRTABLE_API_KEY;
   const BASE_ID = import.meta.env.VITE_AIRTABLE_BASE_ID;
 
@@ -119,4 +119,4 @@ const useApi = (tableName, shouldFetchData = true) => {
   };
 };
 
-export default useApi;
+export default useAirtable;

@@ -2,20 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Box, Button, Flex, Stack, Text } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { MerchantUploadModal, ProductGrid, FadingBox } from "../components";
-import useApi from "../utilities/useApi";
+import useAirtable from "../utilities/useAirtable";
 
 const categoryPage = ["Keychains", "Stickers", "Pins"];
 
 const MerchantPage = () => {
-  const { datas: keychainData, refetch: refetchKeychains } = useApi(
+  const { datas: keychainData, refetch: refetchKeychains } = useAirtable(
     "Keychains",
     true
   );
-  const { datas: stickerData, refetch: refetchStickers } = useApi(
+  const { datas: stickerData, refetch: refetchStickers } = useAirtable(
     "Stickers",
     true
   );
-  const { datas: pinData, refetch: refetchPins } = useApi("Pins", true);
+  const { datas: pinData, refetch: refetchPins } = useAirtable("Pins", true);
 
   // Combine data from all categories
   const categoryData = {

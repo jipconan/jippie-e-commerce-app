@@ -5,12 +5,12 @@
 // I actually thought of just creating the json data in airtable to authethicate maybe thats the best idea
 
 import React, { useEffect, useState } from "react";
-import useApi from "../utilities/useApi";
+import useAirtable from "../utilities/useAirtable";
 
 const GetProductPage = () => {
-  const keychains = useApi("Keychains", true);
-  const stickers = useApi("Stickers", true);
-  const pins = useApi("Pins", true);
+  const keychains = useAirtable("Keychains", true);
+  const stickers = useAirtable("Stickers", true);
+  const pins = useAirtable("Pins", true);
 
   const [jsonData, setJsonData] = useState([]);
 

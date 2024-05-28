@@ -16,7 +16,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useApi, useCloudinary } from "../utilities";
+import { useAirtable, useCloudinary } from "../utilities";
 
 function MerchantDeleteModal({
   isOpen,
@@ -28,7 +28,7 @@ function MerchantDeleteModal({
 }) {
   const { deleteImage } = useCloudinary(); // Use Cloudinary API
 
-  const { deleteData } = useApi(category, false); // use Airtable API
+  const { deleteData } = useAirtable(category, false); // use Airtable API
 
   const [load, setLoad] = useState(false);
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { Stack } from "@chakra-ui/react";
 import { CategoryBar, ProductGrid, FadingBox } from "../components";
-import useApi from "../utilities/useApi";
+import useAirtable from "../utilities/useAirtable";
 
 const StickersPage = () => {
-  const { datas, fetchDatas } = useApi("Stickers", true);
+  const { datas, fetchDatas } = useAirtable("Stickers", true);
   // console.log(datas);
 
   const fetchProducts = () => {
