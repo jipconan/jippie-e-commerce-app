@@ -58,6 +58,7 @@ const Home = () => {
                   w={imageProp.buttonW}
                   h={imageProp.buttonH}
                   fontSize={imageProp.buttonFont}
+                  _hover={{ opacity: 0.75 }}
                 >
                   Keychains
                 </Button>
@@ -85,6 +86,7 @@ const Home = () => {
                   w={imageProp.buttonW}
                   h={imageProp.buttonH}
                   fontSize={imageProp.buttonFont}
+                  _hover={{ opacity: 0.75 }}
                 >
                   Stickers
                 </Button>
@@ -112,6 +114,7 @@ const Home = () => {
                   w={imageProp.buttonW}
                   h={imageProp.buttonH}
                   fontSize={imageProp.buttonFont}
+                  _hover={{ opacity: 0.75 }}
                 >
                   Pins
                 </Button>

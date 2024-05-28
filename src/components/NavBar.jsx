@@ -56,6 +56,7 @@ const NavBar = () => {
           maxWidth={120}
           w={120}
           leftIcon={<RiShoppingCart2Line />}
+          _hover={{ bg: "white", color: "orange.500" }}
         >
           Cart
         </Button>
