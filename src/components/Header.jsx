@@ -9,10 +9,12 @@ const Header = () => {
     positionY: "100",
   };
 
+  const capyHeader = "../src/assets/capyheader.png";
+
   return (
     <Box position="relative" flex="1" mr={0}>
       <Image
-        src={`https://fakeimg.pl/${headerImage.width}x${headerImage.height}`}
+        src={capyHeader}
         alt="Rectangular Image"
         width={`${headerImage.width}px`}
         height={`${headerImage.height}px`}

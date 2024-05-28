@@ -17,7 +17,6 @@ import {
   KeychainsPage,
   StickersPage,
   PinsPage,
-  GetProductPage,
   ProductDataPage,
 } from "./Pages";
 import { Header, Footer } from "./components";
@@ -43,9 +42,6 @@ function App() {
               </Route>
               <Route exact path="/contact">
                 <ContactPage />
-              </Route>
-              <Route exact path="/about-us">
-                <AboutUsPage />
               </Route>
               <Route exact path="/faq">
                 <FaqPage />

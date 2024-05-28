@@ -6,7 +6,6 @@
 
 import React, { useEffect, useState } from "react";
 import useApi from "../utilities/useApi";
-import axios from "axios";
 
 const GetProductPage = () => {
   const keychains = useApi("Keychains", true);

@@ -9,3 +9,5 @@ export { default as HeaderLogo } from "./HeaderLogo";
 export { default as MerchantUploadModal } from "./MerchantUploadModal";
 export { default as MerchantDeleteModal } from "./MerchantDeleteModal";
 export { default as DeleteCard } from "./DeleteCard";
+export { default as TicketForm } from "./TicketForm";
+export { default as FadingBox } from "./FadingBox";

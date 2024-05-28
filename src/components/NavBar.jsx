@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Box, Link, Button } from "@chakra-ui/react";
+import { Flex, Box, Link, Button, Text } from "@chakra-ui/react";
 import { RiLoginBoxLine, RiShoppingCart2Line } from "react-icons/ri";
 
 const NavBar = () => {
@@ -14,20 +14,25 @@ const NavBar = () => {
       >
         <Box fontWeight="bold" fontSize="xl"></Box>
         <Flex gap="2rem">
-          <Link href="/" _hover={{ textDecoration: "underline" }}>
-            Home
+          <Link href="/">
+            <Text textDecoration="underline" fontSize="1xl">
+              Home
+            </Text>
           </Link>
-          <Link href="/store" _hover={{ textDecoration: "underline" }}>
-            Store
+          <Link href="/store">
+            <Text textDecoration="underline" fontSize="1xl">
+              Store
+            </Text>
           </Link>
-          <Link href="/contact" _hover={{ textDecoration: "underline" }}>
-            Contact
+          <Link href="/contact">
+            <Text textDecoration="underline" fontSize="1xl">
+              Contact
+            </Text>
           </Link>
-          <Link href="/about-us" _hover={{ textDecoration: "underline" }}>
-            About Us
-          </Link>
-          <Link href="/faq" _hover={{ textDecoration: "underline" }}>
-            FAQ
+          <Link href="/faq">
+            <Text textDecoration="underline" fontSize="1xl">
+              FAQ
+            </Text>
           </Link>
         </Flex>
       </Flex>
@@ -38,12 +43,20 @@ const NavBar = () => {
             colorScheme="orange"
             variant="outline"
             size="md"
-            w={120}
+            maxWidth={120}
+            w={"100%"}
           >
             Merchant
           </Button>
         </Link>
-        <Button class="snipcart-checkout" leftIcon={<RiShoppingCart2Line />}>
+        <Button
+          className="snipcart-checkout"
+          colorScheme="orange"
+          size="md"
+          maxWidth={120}
+          w={120}
+          leftIcon={<RiShoppingCart2Line />}
+        >
           Cart
         </Button>
       </Flex>

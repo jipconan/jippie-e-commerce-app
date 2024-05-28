@@ -41,22 +41,6 @@
   color: #888;
 }
 
-.snipcart-checkout {
-  background-color: RGB(227, 109, 5);
-  color: white;
-  width: 120px;
-  border-radius: 8px;
-  padding: 8px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.3s;
-}
-
-.snipcart-checkout:hover {
-  background-color: #c24d00;
-}
-
 .snipcart-button-primary {
   background-color: RGB(227, 109, 5);
   color: #fff;
@@ -97,4 +81,12 @@
   color: white;
   border-color: transparent;
   background-color: RGB(247, 109, 5);
+}
+
+.animated-box {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
 }

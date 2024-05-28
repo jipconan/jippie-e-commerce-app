@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, Flex, Stack, Text } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import { MerchantUploadModal, ProductGrid } from "../components";
+import { MerchantUploadModal, ProductGrid, FadingBox } from "../components";
 import useApi from "../utilities/useApi";
 
 const categoryPage = ["Keychains", "Stickers", "Pins"];
@@ -30,11 +30,17 @@ const MerchantPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   // Function to refetch all categories
-  const refetchAllCategories = () => {
-    refetchKeychains();
-    refetchStickers();
-    refetchPins();
+  const refetchAllCategories = async () => {
+    await refetchKeychains();
+    await delay(1000);
+    await refetchStickers();
+    await delay(1000);
+    await refetchPins();
+    await delay(1000);
+    setLoading(false);
   };
+
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   return (
     <Stack>
@@ -51,20 +57,24 @@ const MerchantPage = () => {
         />
       </Box>
       <Stack spacing={0} align="center" p={10}>
-        {categoryPage.map((category) => (
-          <Flex key={category} direction="column" w="100%">
-            <Flex flexDirection={"flex-start"}>
-              <Text as="b" fontSize="3xl" color={"orange.500"}>
-                {category}
-              </Text>
-            </Flex>
-            <ProductGrid
-              datas={categoryData[category]}
-              isMerchantPage={isMerchantPage}
-              refetchAllCategories={refetchAllCategories}
-            />
-          </Flex>
-        ))}
+        {categoryPage.map(
+          (category) =>
+            categoryData[category] &&
+            categoryData[category].length > 0 && (
+              <FadingBox key={category}>
+                <Flex direction="column" w="100%" py={4}>
+                  <Text as="b" fontSize="3xl" color="orange.500" align={"left"}>
+                    {category}
+                  </Text>
+                  <ProductGrid
+                    datas={categoryData[category]}
+                    isMerchantPage={isMerchantPage}
+                    refetchAllCategories={refetchAllCategories}
+                  />
+                </Flex>
+              </FadingBox>
+            )
+        )}
       </Stack>
     </Stack>
   );

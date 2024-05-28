@@ -1,10 +1,11 @@
-import { React, useEffect } from "react";
-import { Stack, Flex, Text } from "@chakra-ui/react";
-import { CategoryBar, ProductGrid } from "../components";
+import React, { useEffect, useState } from "react";
+import { Stack, Flex, Heading } from "@chakra-ui/react";
+import { CategoryBar, ProductGrid, FadingBox } from "../components";
 import useApi from "../utilities/useApi";
 
 const StorePage = () => {
   const categoryPage = ["Keychains", "Stickers", "Pins"];
+  const [loading, setLoading] = useState(true);
   const { datas: keychainData, refetch: refetchKeychains } = useApi(
     "Keychains",
     false
@@ -15,11 +16,20 @@ const StorePage = () => {
   );
   const { datas: pinData, refetch: refetchPins } = useApi("Pins", false);
 
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   useEffect(() => {
-    // Fetch data for each category when component mounts
-    refetchKeychains();
-    refetchStickers();
-    refetchPins();
+    const fetchDataWithDelay = async () => {
+      await refetchKeychains();
+      await delay(500);
+      await refetchStickers();
+      await delay(500);
+      await refetchPins();
+      await delay(500);
+      setLoading(false);
+    };
+
+    fetchDataWithDelay();
   }, []);
 
   // Combine data from all categories
@@ -32,19 +42,22 @@ const StorePage = () => {
   return (
     <Stack>
       <CategoryBar />
-      <Stack d="flex" spacing={4} align="center" mb={0} p={10}>
-        {categoryPage.map((category) => (
-          <Flex key={category} direction="column" w="100%">
-            <Stack>
-              <Flex>
-                <Text as="b" fontSize="3xl" color={"orange.500"}>
-                  {category}
-                </Text>
-              </Flex>
-            </Stack>
-            <ProductGrid datas={categoryData[category]} />
-          </Flex>
-        ))}
+      <Stack spacing={4} align="center" mb={0} p={10}>
+        {categoryPage.map(
+          (category) =>
+            categoryData[category] &&
+            categoryData[category].length > 0 && (
+              <FadingBox key={category}>
+                <Flex direction="column" w="100%">
+                  {/* <Heading align="left" color="RGB(227, 109, 5)" fontSize="2xl">
+                    {category}
+                  </Heading> */}
+                  <ProductGrid datas={categoryData[category]} />
+                </Flex>
+              </FadingBox>
+            )
+        )}
+        {loading && <p></p>}
       </Stack>
     </Stack>
   );
