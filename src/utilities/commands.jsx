@@ -1,4 +1,9 @@
 // npm run dev
-// ngrok http --domain=snail-equal-vastly.ngrok-free.app 80
+// ngrok http --domain=resolved-freely-dassie.ngrok-free.app 5173
 
-//installed react router, dotenv, cloudinary, vite-plugin-mock, ngrok
+// installed
+// react router, react-icons, react-intersection-observer,
+// ngrok (by chocolatey), crypto.js, tailwindcss, dotenv
+
+// api used
+// airtable, snipcart

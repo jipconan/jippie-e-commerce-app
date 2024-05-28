@@ -9,7 +9,7 @@ const ProductGrid = ({ datas, isMerchantPage, refetchAllCategories }) => {
         <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={4}>
           {datas.map((product, index) =>
             isMerchantPage ? (
-              <DeleteCard
+              <DeleteCard // DeleteCard Component
                 key={index}
                 id={product.id}
                 publicId={product.public_id}
@@ -21,7 +21,7 @@ const ProductGrid = ({ datas, isMerchantPage, refetchAllCategories }) => {
                 refetchAllCategories={refetchAllCategories}
               />
             ) : (
-              <ProductCard
+              <ProductCard // ProductCard Component
                 key={index}
                 id={product.id}
                 publicId={product.public_id}

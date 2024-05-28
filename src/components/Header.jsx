@@ -1,12 +1,17 @@
 import React from "react";
 import { Stack, Flex, Box, Image, Center, Link } from "@chakra-ui/react";
-import { NavBar, HeaderLogo } from "../components";
+import { NavBar } from "../components";
 
 const Header = () => {
   const headerImage = {
     width: "1900",
     height: "400",
     positionY: "100",
+  };
+
+  const headerLogo = {
+    width: "256",
+    height: "256",
   };
 
   const capyHeader = "../src/assets/capyheader.png";
@@ -29,9 +34,16 @@ const Header = () => {
         <Flex direction="column" align="center" width="100%">
           <Stack>
             <Link href="/">
-              <HeaderLogo />
+              <Image
+                src={"../src/assets/jippie_logo.png"}
+                alt="Rectangular Image"
+                width={`${headerLogo.width}px`}
+                height={`${headerLogo.height}px`}
+              />
             </Link>
           </Stack>
+
+          {/* NavBar Component */}
           <NavBar />
         </Flex>
       </Center>

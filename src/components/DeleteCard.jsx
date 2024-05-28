@@ -7,7 +7,7 @@ import {
   Button,
   useDisclosure,
 } from "@chakra-ui/react";
-import { MerchantDeleteModal } from "../components";
+import { MerchantDeleteModal, MerchantUpdateModal } from "../components";
 
 const DeleteCard = ({
   id,
@@ -19,8 +19,15 @@ const DeleteCard = ({
   category,
   refetchAllCategories,
 }) => {
-  // Open Modal for Delete Product
+  // Open MerchantDeleteModal for Delete Product
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  // Open MerchantUpdateModal for Update Product
+  const {
+    isOpen: isUpdateOpen,
+    onOpen: onUpdateOpen,
+    onClose: onUpdateClose,
+  } = useDisclosure();
 
   return (
     <Box
@@ -48,19 +55,38 @@ const DeleteCard = ({
           </Text>
         </Box>
       </Box>
-      <Flex justifyContent="flex-start" mt="4">
-        <Button colorScheme="red" size="md" onClick={onOpen}>
+      <Flex justifyContent="space-between" mt="4">
+        <Button colorScheme="red" size="lg" onClick={onOpen} mr="2">
           Delete
         </Button>
-        <MerchantDeleteModal
-          isOpen={isOpen}
-          onClose={onClose}
-          category={category}
-          id={id}
-          refetchAllCategories={refetchAllCategories}
-          publicId={publicId}
-        />
+        <Button colorScheme="blue" size="lg" onClick={onUpdateOpen}>
+          Update
+        </Button>
       </Flex>
+      {/* MerchantUpdateModal Component */}
+      <MerchantUpdateModal
+        isOpen={isUpdateOpen}
+        onClose={onUpdateClose}
+        product={{
+          id,
+          name,
+          description,
+          price,
+          imageUrl,
+          public_id: publicId,
+          category,
+        }}
+        refetchAllCategories={refetchAllCategories}
+      />
+      {/* MerchantDeleteModal Component */}
+      <MerchantDeleteModal
+        isOpen={isOpen}
+        onClose={onClose}
+        category={category}
+        id={id}
+        refetchAllCategories={refetchAllCategories}
+        publicId={publicId}
+      />
     </Box>
   );
 };

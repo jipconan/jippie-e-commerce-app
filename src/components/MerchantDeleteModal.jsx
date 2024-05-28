@@ -26,8 +26,10 @@ function MerchantDeleteModal({
   refetchAllCategories,
   publicId,
 }) {
-  const { deleteImage } = useCloudinary();
-  const { deleteData } = useApi(category, false);
+  const { deleteImage } = useCloudinary(); // Use Cloudinary API
+
+  const { deleteData } = useApi(category, false); // use Airtable API
+
   const [load, setLoad] = useState(false);
 
   const handleLoad = () => {

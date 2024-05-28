@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   FormControl,
   FormLabel,
@@ -17,16 +17,28 @@ import {
 } from "@chakra-ui/react";
 import { useApi, useCloudinary } from "../utilities";
 
-const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
+const MerchantUpdateModal = ({
+  isOpen,
+  onClose,
+  product,
+  refetchAllCategories,
+}) => {
   const { uploadImage } = useCloudinary(); // Use Cloudinary API
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [description, setDescription] = useState("");
-  const [categories, setCategories] = useState("");
+  const [name, setName] = useState(product.name);
+  const [price, setPrice] = useState(product.price);
+  const [description, setDescription] = useState(product.description);
+  const [categories, setCategories] = useState(product.category);
   const [file, setFile] = useState(null);
   const [load, setLoad] = useState(false);
 
   const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    setName(product.name);
+    setPrice(product.price);
+    setDescription(product.description);
+    setCategories(product.category);
+  }, [product]);
 
   const handleNameChange = (event) => setName(event.target.value);
   const handlePriceChange = (event) => setPrice(event.target.value);
@@ -34,7 +46,7 @@ const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
   const handleCategoriesChange = (event) => setCategories(event.target.value);
   const handleFileChange = (event) => setFile(event.target.files[0]);
 
-  const { createDatas } = useApi(categories, false); // Use Airtable API
+  const { updateData } = useApi(categories, false); // Use Airtable API
 
   const clearForm = () => {
     setName("");
@@ -57,28 +69,33 @@ const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (name && price && description && categories && file) {
-      try {
-        handleLoad();
-        const { secureUrl, publicId } = await uploadImage(file, categories);
+    try {
+      handleLoad();
+      let imageUrl = product.imageUrl;
+      let publicId = product.public_id;
 
-        await createDatas({
-          name,
-          price: parseFloat(price),
-          description,
-          imageUrl: secureUrl,
-          public_id: publicId,
-          category: categories,
-        });
-
-        clearForm();
-        handleStopLoad();
-        refetchAllCategories();
-        onClose();
-      } catch (error) {
-        console.error("Error submitting product:", error);
-        handleStopLoad();
+      if (file) {
+        const uploadResult = await uploadImage(file, categories);
+        imageUrl = uploadResult.secureUrl;
+        publicId = uploadResult.publicId;
       }
+
+      await updateData(product.id, {
+        name,
+        price: parseFloat(price),
+        description,
+        imageUrl,
+        public_id: publicId,
+        category: categories,
+      });
+
+      clearForm();
+      handleStopLoad();
+      refetchAllCategories();
+      onClose();
+    } catch (error) {
+      console.error("Error updating product:", error);
+      handleStopLoad();
     }
   };
 
@@ -86,7 +103,7 @@ const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent p={4}>
-        <ModalHeader>Add a New Product</ModalHeader>
+        <ModalHeader>Update Product</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <form onSubmit={handleSubmit}>
@@ -118,7 +135,7 @@ const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
               </Select>
             </FormControl>
 
-            <FormControl id="file" isRequired mb={4} textAlign="center">
+            <FormControl id="file" mb={4} textAlign="center">
               <FormLabel color="orange.600">
                 Upload Image (PNG or JPEG)
               </FormLabel>
@@ -135,10 +152,10 @@ const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
                 colorScheme="orange"
                 type="submit"
                 isLoading={load}
-                loadingText="Submitting"
+                loadingText="Updating"
                 variant="solid"
               >
-                Submit
+                Update
               </Button>
             </Stack>
           </form>
@@ -148,4 +165,4 @@ const MerchantUploadModal = ({ isOpen, onClose, refetchAllCategories }) => {
   );
 };
 
-export default MerchantUploadModal;
+export default MerchantUpdateModal;

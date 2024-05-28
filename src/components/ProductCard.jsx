@@ -38,6 +38,7 @@ const ProductCard = ({
         </Box>
       </Box>
       <Flex justifyContent="flex-end" mt="4">
+        {/* AddToCartButton Component */}
         <AddToCartButton
           id={id}
           public_id={publicId}

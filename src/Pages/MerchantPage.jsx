@@ -37,7 +37,6 @@ const MerchantPage = () => {
     await delay(1000);
     await refetchPins();
     await delay(1000);
-    setLoading(false);
   };
 
   const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));

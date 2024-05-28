@@ -5,7 +5,6 @@ import useApi from "../utilities/useApi";
 
 const StorePage = () => {
   const categoryPage = ["Keychains", "Stickers", "Pins"];
-  const [loading, setLoading] = useState(true);
   const { datas: keychainData, refetch: refetchKeychains } = useApi(
     "Keychains",
     false
@@ -26,7 +25,6 @@ const StorePage = () => {
       await delay(500);
       await refetchPins();
       await delay(500);
-      setLoading(false);
     };
 
     fetchDataWithDelay();
@@ -57,7 +55,6 @@ const StorePage = () => {
               </FadingBox>
             )
         )}
-        {loading && <p></p>}
       </Stack>
     </Stack>
   );

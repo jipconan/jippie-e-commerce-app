@@ -82,11 +82,3 @@
   border-color: transparent;
   background-color: RGB(247, 109, 5);
 }
-
-.animated-box {
-  opacity: 0;
-}
-
-.visible {
-  opacity: 1;
-}

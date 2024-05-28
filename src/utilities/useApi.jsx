@@ -53,6 +53,30 @@ const useApi = (tableName, shouldFetchData = true) => {
     }
   };
 
+  // Update data function
+  const updateData = async (id, fields) => {
+    let url = `https://api.airtable.com/v0/${BASE_ID}/${tableName}/${id}`;
+    try {
+      const payload = {
+        fields: fields,
+      };
+
+      const response = await fetch(url, {
+        ...options,
+        method: "PATCH",
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error updating data: ${response.statusText}`);
+      }
+      // Refetch data after successful update
+      await fetchDatas();
+    } catch (error) {
+      console.error("Error updating data:", error);
+    }
+  };
+
   // Delete data function
   const deleteData = async (id) => {
     let url = `https://api.airtable.com/v0/${BASE_ID}/${tableName}/${id}`;
@@ -89,6 +113,7 @@ const useApi = (tableName, shouldFetchData = true) => {
   return {
     datas: datasData(),
     createDatas,
+    updateData,
     deleteData,
     refetch: fetchDatas, // Expose refetch function
   };

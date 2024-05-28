@@ -5,6 +5,7 @@ import { FadingBox } from "../components";
 const CategoryBar = () => {
   return (
     <Stack>
+      {/* FadingBox Component */}
       <FadingBox>
         <Text p="2em" fontSize={"2xl"}>
           Please feel free to browse! They are all made by Jippie Artists!

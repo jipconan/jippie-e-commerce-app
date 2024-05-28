@@ -28,7 +28,7 @@ const useCloudinary = () => {
     return {
       secureUrl: data.secure_url,
       publicId: data.public_id,
-    }; // Return secure URL and public ID
+    };
   };
 
   const generateSignature = (publicId, apiSecret, timestamp) => {
