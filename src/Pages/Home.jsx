@@ -23,9 +23,9 @@ const Home = () => {
   };
   // const temporaryImage = `https://fakeimg.pl/${`${imageProp.width}`}x${`${imageProp.height}`}`;
 
-  const capyKeychains = "../src/assets/capykeychains.png";
-  const capyStickers = "../src/assets/capystickers.png";
-  const capyPins = "../src/assets/capypins.png";
+  const capyKeychains = "/media/capykeychains.png";
+  const capyStickers = "/media/capystickers.png";
+  const capyPins = "/media/capypins.png";
 
   return (
     <Stack>

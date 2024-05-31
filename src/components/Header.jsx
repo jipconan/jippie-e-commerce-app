@@ -14,7 +14,7 @@ const Header = () => {
     height: "256",
   };
 
-  const capyHeader = "../src/assets/capyheader.png";
+  const capyHeader = "/media/capyheader.png";
 
   return (
     <Box position="relative" flex="1" mr={0}>
@@ -35,7 +35,7 @@ const Header = () => {
           <Stack>
             <Link href="/">
               <Image
-                src={"../src/assets/jippie_logo.png"}
+                src={"/media/jippie_logo.png"}
                 alt="Rectangular Image"
                 width={`${headerLogo.width}px`}
                 height={`${headerLogo.height}px`}
