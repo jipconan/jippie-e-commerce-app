@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Stack, Flex, Heading } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import { Stack, Flex } from "@chakra-ui/react";
 import { CategoryBar, ProductGrid, FadingBox } from "../components";
 import useAirtable from "../utilities/useAirtable";
 

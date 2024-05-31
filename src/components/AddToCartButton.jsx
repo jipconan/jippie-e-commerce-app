@@ -15,7 +15,7 @@ const AddToCartButton = ({
 
   // const productUrl = `https://resolved-freely-dassie.ngrok-free.app/data/${category}_response.json`;
 
-  const productUrl = `https://jippie-e-commerce-app.onrender.com/store`;
+  const productUrl = `https://jippie-e-commerce-app.onrender.com/store/main`;
 
   return (
     <Button
