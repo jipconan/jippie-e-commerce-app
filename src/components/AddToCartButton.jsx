@@ -10,12 +10,8 @@ const AddToCartButton = ({
   price,
   category,
 }) => {
-  // const ngrokUrl = "https://factual-octopus-cuddly.ngrok-free.app"; // Replace with your Ngrok URL
-  // const productUrl = `${ngrokUrl}/getproductpage`;
-
-  // const productUrl = `https://resolved-freely-dassie.ngrok-free.app/data/${category}_response.json`;
-
-  const productUrl = `https://jippie-e-commerce-app.onrender.com/store/main`;
+  // Fake backend
+  const productUrl = `https://resolved-freely-dassie.ngrok-free.app/data/${category}_response.json`;
 
   return (
     <Button
