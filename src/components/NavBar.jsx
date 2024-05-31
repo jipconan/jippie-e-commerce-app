@@ -19,7 +19,7 @@ const NavBar = () => {
               Home
             </Text>
           </Link>
-          <Link href="/store">
+          <Link href="/store/main">
             <Text textDecoration="underline" fontSize="1xl">
               Store
             </Text>
