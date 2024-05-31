@@ -40,6 +40,9 @@ function App() {
               <Route exact path="/store">
                 <StorePage />
               </Route>
+              <Route exact path="/store">
+                <StorePage />
+              </Route>
               <Route exact path="/contact">
                 <ContactPage />
               </Route>
