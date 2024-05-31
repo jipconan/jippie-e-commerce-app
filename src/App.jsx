@@ -26,7 +26,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Router>
-        <div>
+        <div className="font-josefin">
           <header className="header">
             <Stack>
               <Header />

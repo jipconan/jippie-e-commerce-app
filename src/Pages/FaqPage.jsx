@@ -16,7 +16,12 @@ const FaqPage = () => {
               py={16}
               w={"100%"}
             >
-              <Heading fontSize="4xl" fontWeight="bold" textAlign="left">
+              <Heading
+                fontSize="4xl"
+                fontWeight="bold"
+                textAlign="left"
+                className="font-josefin"
+              >
                 Shipping Inquiries
               </Heading>
 
