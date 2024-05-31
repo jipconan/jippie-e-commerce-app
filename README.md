@@ -27,7 +27,7 @@ This e-commerce website allows users to browse and purchase products such as key
 
 ## Deployed URL
 
-You can access the deployed URL at (coming soon..).
+You can access the deployed URL at [Jippie E-Commerce](https://jippie-e-commerce-app.onrender.com/).
 
 ## Website Screenshots
 
@@ -57,11 +57,11 @@ You can access the deployed URL at (coming soon..).
 
 ### Deployed URL
 
-You can access the deployed URL at (coming soon..).
+You can access the deployed URL at [Jippie E-Commerce](https://jippie-e-commerce-app.onrender.com/)..
 
 ### Public Board Planning
 
-For detailed planning and task tracking, refer to the public planning board on [Trello Website](https://trello.com/b/V93D5qwa/jippie-e-commercedevelopment).
+For detailed planning and task tracking, refer to the public planning board on [Trello Board](https://trello.com/b/V93D5qwa/jippie-e-commercedevelopment).
 
 ### Website Development Diagram
 
