@@ -37,12 +37,6 @@ function App() {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route exact path="/store">
-                <StorePage />
-              </Route>
-              <Route exact path="/store">
-                <StorePage />
-              </Route>
               <Route exact path="/contact">
                 <ContactPage />
               </Route>
@@ -51,6 +45,9 @@ function App() {
               </Route>
               <Route exact path="/merchant">
                 <MerchantPage />
+              </Route>
+              <Route exact path="/store/main">
+                <StorePage />
               </Route>
               <Route exact path="/store/keychains">
                 <KeychainsPage />
