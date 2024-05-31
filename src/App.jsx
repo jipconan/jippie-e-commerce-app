@@ -11,7 +11,6 @@ import {
   Home,
   StorePage,
   ContactPage,
-  AboutUsPage,
   FaqPage,
   MerchantPage,
   KeychainsPage,
