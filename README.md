@@ -27,7 +27,7 @@ This e-commerce website allows users to browse and purchase products such as key
 
 ## Deployed URL
 
-You can access the deployed URL at [Jippie E Commerce](https://your-deployed-app-url.com).
+You can access the deployed URL at (coming soon..).
 
 ## Website Screenshots
 
@@ -42,7 +42,7 @@ You can access the deployed URL at [Jippie E Commerce](https://your-deployed-app
 |                       **Add to Cart**                       |                     **Checkout**                      |
 | :---------------------------------------------------------: | :---------------------------------------------------: |
 | ![Add to Cart](./public/media/snipcart%20-%20addtocart.gif) | ![Checkout](<./public/media/snipcart - checkout.gif>) |
-|                           Payment                           |
+|                         **Payment**                         |
 |    ![Payment](./public/media/snipcart%20-%20payment.gif)    |
 
 ## Create, Edit, Delete Product for Merchant Owner
@@ -50,14 +50,14 @@ You can access the deployed URL at [Jippie E Commerce](https://your-deployed-app
 |                          **Add Product**                           |                        **Edit Product**                        |
 | :----------------------------------------------------------------: | :------------------------------------------------------------: |
 |  ![Create Product](./public/media/merchant%20-%20addproduct.gif)   | ![Edit Product](./public/media/merchant%20-%20editproduct.gif) |
-|                         **Delet Product**                          |
+|                         **Delete Product**                         |
 | ![Delete Product](./public/media/merchant%20-%20deleteproduct.gif) |
 
 ## Check it out!
 
 ### Deployed URL
 
-You can access the deployed URL at [Jippie E Commerce](https://your-deployed-app-url.com).
+You can access the deployed URL at (coming soon..).
 
 ### Public Board Planning
 
@@ -80,11 +80,11 @@ Refer to the diagram on [draw.io](https://app.diagrams.net/#G14o7nv5GfQ02vAii20Z
 ### Front-End
 
 - **React**
-- **React Router**
+  - **React Router**
+  - **React Icons**
+  - **React Intersection Observer**
 - **Chakra UI**
 - **Tailwind CSS**
-- **React Icons**
-- **React Intersection Observer**
 - **Snipcart API**
 
 ### Back-End
