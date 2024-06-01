@@ -1,6 +1,15 @@
 import React from "react";
-import { Stack, Flex, Box, Image, Center, Link } from "@chakra-ui/react";
+import {
+  Stack,
+  Flex,
+  Box,
+  Image,
+  Center,
+  Link,
+  Button,
+} from "@chakra-ui/react";
 import { NavBar } from "../components";
+import { RiLoginBoxLine, RiShoppingCart2Line } from "react-icons/ri";
 
 const Header = () => {
   const headerImage = {
@@ -47,6 +56,20 @@ const Header = () => {
           <NavBar />
         </Flex>
       </Center>
+      <Button
+        position="absolute"
+        bottom="15px"
+        right="15px"
+        className="snipcart-checkout"
+        colorScheme="orange"
+        size="md"
+        maxWidth={120}
+        w={120}
+        leftIcon={<RiShoppingCart2Line />}
+        _hover={{ bg: "white", color: "orange.500" }}
+      >
+        Cart
+      </Button>
     </Box>
   );
 };
