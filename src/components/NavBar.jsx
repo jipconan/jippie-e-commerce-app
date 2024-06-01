@@ -37,7 +37,7 @@ const NavBar = () => {
         </Flex>
       </Flex>
       <Flex gap="1rem" position="absolute" right="1rem" bottom="10px">
-        <Link href="/merchant" _hover={{ textDecoration: "" }}>
+        {/* <Link href="/merchant" _hover={{ textDecoration: "" }}>
           <Button
             leftIcon={<RiLoginBoxLine />}
             colorScheme="orange"
@@ -48,7 +48,7 @@ const NavBar = () => {
           >
             Merchant
           </Button>
-        </Link>
+        </Link> */}
         <Button
           className="snipcart-checkout"
           colorScheme="orange"
