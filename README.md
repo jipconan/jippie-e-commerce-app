@@ -29,6 +29,15 @@ This e-commerce website allows users to browse and purchase products such as key
 
 You can access the deployed URL at [Jippie E-Commerce](https://jippie-e-commerce-app.onrender.com/).
 
+## Access Merchant Page
+
+You can access the Merchant page at [Merchant Page](https://jippie-e-commerce-app.onrender.com/merchant).
+
+- I removed the merchant button just recently.
+- Don't delete my products using this link haha. Please haha.
+- This removal is to prevent people deleting the products away from the deployed url.
+- After learning how to do login authentication console for merchant page, it will be added back.
+
 ## Website Screenshots
 
 |                             **Landing Page**                              |                           **Store Page**                            |                  **Merchant** Page                   |
