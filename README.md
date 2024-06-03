@@ -116,6 +116,9 @@ Refer to the diagram on [draw.io](https://app.diagrams.net/#G14o7nv5GfQ02vAii20Z
 
 ### Planned Future Enhancements
 
+- **Website Responsiveness & Compatibility:**
+  </br>
+  Implement responsive design and ensure compatibility across all device sizes.
 - **User Authentication:**
   </br>
   Implement user authentication and authorization for a more personalized shopping experience.
